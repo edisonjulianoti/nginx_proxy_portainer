@@ -49,7 +49,7 @@ services:
           cpus: "0.1"
           memory: 256M
     networks:
-      - npm_public
+      - rede_proxy
 
 volumes: 
   npm_data:
@@ -58,5 +58,5 @@ volumes:
     external: true
 
 networks:
-  npm_public:
+  rede_proxy:
     external: true
