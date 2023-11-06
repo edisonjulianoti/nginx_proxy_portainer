@@ -23,7 +23,7 @@
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v portainer_data:/data portainer/portainer-ce
 
-## Configuração do NGINX Proxy Manager com Docker Swarm
+## Yaml
 
 ```yaml
 version: '3.8'
