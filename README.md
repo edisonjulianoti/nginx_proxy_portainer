@@ -1,15 +1,22 @@
-# Tutorial: Configuração do NGINX Proxy Manager com Docker Swarm
+# Configuração do NGINX Proxy Manager com Docker Swarm e Portainer
 
-Este tutorial fornece as etapas para configurar o [NGINX Proxy Manager](https://nginxproxymanager.com/guide/) utilizando Docker e Docker-Compose no modo Swarm.
+## Pré-requisitos
+- Docker e Docker Compose instalados.
 
-## 1. Instalação do Docker e Docker-Compose
+## Instalação e Configuração
+1. **Instale Docker e Docker Compose:**
+   - Docker: [Guia de Instalação](https://docs.docker.com/get-docker/)
+   - Docker Compose: [Guia de Instalação](https://docs.docker.com/compose/install/)
 
-- **Docker**: Siga a [documentação de instalação do Docker](https://docs.docker.com/install/) para instalar o Docker em seu sistema.
-- **Docker-Compose**: Após instalar o Docker, prossiga com a [instalação do Docker-Compose](https://docs.docker.com/compose/install/).
+2. **Inicialize o Docker Swarm:**
+   ```bash
+   docker swarm init
 
-## 2. Configuração do Modo Swarm
+## Portainer
+1. **Crie um volume para o Portainer:**
+docker volume create portainer_data
 
-Ative o modo Swarm com o seguinte comando:
-
-```bash
-docker swarm init
+2. **Execute o contêiner do Portainer:**
+docker run -d -p 9000:9000 --name=portainer --restart=always \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v portainer_data:/data portainer/portainer-ce
